@@ -1,0 +1,84 @@
+apiVersion: v1
+items:
+- apiVersion: image.openshift.io/v1
+  generation: 4
+  image:
+    dockerImageLayers: null
+    dockerImageMetadata:
+      ContainerConfig: {}
+      Created: null
+      Id: ""
+      apiVersion: "1.0"
+      kind: DockerImage
+    dockerImageMetadataVersion: "1.0"
+    dockerImageReference: quay.io/openshiftlabs/lab-build-an-operator@sha256:c9a5c12849a98a0199a33447f85c76e34e2c75a4c40469a983af3a3256249944
+    metadata:
+      creationTimestamp: null
+      name: sha256:c9a5c12849a98a0199a33447f85c76e34e2c75a4c40469a983af3a3256249944
+  kind: ImageStreamTag
+  lookupPolicy:
+    local: true
+  metadata:
+    creationTimestamp: "2020-06-22T13:40:46Z"
+    labels:
+      app: lab-build-an-operator
+      class: spawner
+      spawner: learning-portal
+    name: lab-build-an-operator-session:latest
+    namespace: lab-operator
+    resourceVersion: "242882"
+    selfLink: /apis/image.openshift.io/v1/namespaces/lab-operator/imagestreamtags/lab-build-an-operator-session%3Alatest
+    uid: d5cd9f47-b48d-11ea-af8e-0a580a810048
+  tag:
+    annotations: null
+    from:
+      kind: DockerImage
+      name: quay.io/openshiftlabs/lab-build-an-operator:1.0
+    generation: 4
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+- apiVersion: image.openshift.io/v1
+  generation: 2
+  image:
+    dockerImageLayers: null
+    dockerImageMetadata:
+      ContainerConfig: {}
+      Created: null
+      Id: ""
+      apiVersion: "1.0"
+      kind: DockerImage
+    dockerImageMetadataVersion: "1.0"
+    dockerImageReference: quay.io/openshifthomeroom/workshop-spawner@sha256:151318399b40735c279771e9b2eb984ae74165500d7f494b8b697c1d3b7e3ead
+    metadata:
+      creationTimestamp: null
+      name: sha256:151318399b40735c279771e9b2eb984ae74165500d7f494b8b697c1d3b7e3ead
+  kind: ImageStreamTag
+  lookupPolicy:
+    local: false
+  metadata:
+    creationTimestamp: "2020-06-22T13:39:41Z"
+    labels:
+      app: lab-build-an-operator
+      class: spawner
+      spawner: learning-portal
+    name: lab-build-an-operator-spawner:latest
+    namespace: lab-operator
+    resourceVersion: "242514"
+    selfLink: /apis/image.openshift.io/v1/namespaces/lab-operator/imagestreamtags/lab-build-an-operator-spawner%3Alatest
+    uid: d2356a87-b48d-11ea-9db2-0a580a82003e
+  tag:
+    annotations: null
+    from:
+      kind: DockerImage
+      name: quay.io/openshifthomeroom/workshop-spawner:7.1.0
+    generation: 2
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

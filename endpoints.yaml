@@ -1,0 +1,38 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Endpoints
+  metadata:
+    annotations:
+      endpoints.kubernetes.io/last-change-trigger-time: "2020-06-26T12:02:11Z"
+    creationTimestamp: "2020-06-22T13:39:44Z"
+    labels:
+      app: lab-build-an-operator
+      class: spawner
+      spawner: learning-portal
+    name: lab-build-an-operator-spawner
+    namespace: lab-operator
+    resourceVersion: "2611038"
+    selfLink: /api/v1/namespaces/lab-operator/endpoints/lab-build-an-operator-spawner
+    uid: d4c63519-b48d-11ea-8277-0a3db79e8570
+  subsets:
+  - addresses:
+    - ip: 10.128.2.221
+      nodeName: ip-10-0-134-36.sa-east-1.compute.internal
+      targetRef:
+        kind: Pod
+        name: lab-build-an-operator-spawner-2-flhlb
+        namespace: lab-operator
+        resourceVersion: "2611037"
+        uid: c92d982b-b4b5-11ea-8277-0a3db79e8570
+    ports:
+    - name: 8081-tcp
+      port: 8081
+      protocol: TCP
+    - name: 8080-tcp
+      port: 8080
+      protocol: TCP
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

@@ -1,0 +1,1268 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      k8s.v1.cni.cncf.io/networks-status: ""
+      openshift.io/deployment-config.name: lab-build-an-operator-spawner
+      openshift.io/deployment.name: lab-build-an-operator-spawner-1
+      openshift.io/scc: restricted
+    creationTimestamp: "2020-06-22T13:39:44Z"
+    labels:
+      openshift.io/deployer-pod-for.name: lab-build-an-operator-spawner-1
+    name: lab-build-an-operator-spawner-1-deploy
+    namespace: lab-operator
+    ownerReferences:
+    - apiVersion: v1
+      kind: ReplicationController
+      name: lab-build-an-operator-spawner-1
+      uid: d500252c-b48d-11ea-8277-0a3db79e8570
+    resourceVersion: "242790"
+    selfLink: /api/v1/namespaces/lab-operator/pods/lab-build-an-operator-spawner-1-deploy
+    uid: d50a661e-b48d-11ea-8277-0a3db79e8570
+  spec:
+    activeDeadlineSeconds: 21600
+    containers:
+    - env:
+      - name: OPENSHIFT_DEPLOYMENT_NAME
+        value: lab-build-an-operator-spawner-1
+      - name: OPENSHIFT_DEPLOYMENT_NAMESPACE
+        value: lab-operator
+      image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:db8dcd64a6159f3be97d4ad1524e17af17c350e929818a0632f8e20bcbafd293
+      imagePullPolicy: IfNotPresent
+      name: deployment
+      resources: {}
+      securityContext:
+        capabilities:
+          drop:
+          - KILL
+          - MKNOD
+          - SETGID
+          - SETUID
+        runAsUser: 1000520000
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: deployer-token-lb592
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+    - name: deployer-dockercfg-8fwch
+    nodeName: ip-10-0-134-36.sa-east-1.compute.internal
+    priority: 0
+    restartPolicy: Never
+    schedulerName: default-scheduler
+    securityContext:
+      fsGroup: 1000520000
+      seLinuxOptions:
+        level: s0:c23,c7
+    serviceAccount: deployer
+    serviceAccountName: deployer
+    shareProcessNamespace: false
+    terminationGracePeriodSeconds: 10
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: deployer-token-lb592
+      secret:
+        defaultMode: 420
+        secretName: deployer-token-lb592
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-22T13:39:44Z"
+      reason: PodCompleted
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-22T13:40:30Z"
+      reason: PodCompleted
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-22T13:40:30Z"
+      reason: PodCompleted
+      status: "False"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-22T13:39:44Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://a59391ba6c5e5be12f26024f8f96c4e36cbb2881b8cb5a9bc9d014ffdb06023c
+      image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:db8dcd64a6159f3be97d4ad1524e17af17c350e929818a0632f8e20bcbafd293
+      imageID: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:db8dcd64a6159f3be97d4ad1524e17af17c350e929818a0632f8e20bcbafd293
+      lastState: {}
+      name: deployment
+      ready: false
+      restartCount: 0
+      state:
+        terminated:
+          containerID: cri-o://a59391ba6c5e5be12f26024f8f96c4e36cbb2881b8cb5a9bc9d014ffdb06023c
+          exitCode: 0
+          finishedAt: "2020-06-22T13:40:29Z"
+          reason: Completed
+          startedAt: "2020-06-22T13:39:52Z"
+    hostIP: 10.0.134.36
+    phase: Succeeded
+    podIP: 10.128.2.33
+    qosClass: BestEffort
+    startTime: "2020-06-22T13:39:44Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      k8s.v1.cni.cncf.io/networks-status: ""
+      openshift.io/deployment-config.name: lab-build-an-operator-spawner
+      openshift.io/deployment.name: lab-build-an-operator-spawner-2
+      openshift.io/scc: restricted
+    creationTimestamp: "2020-06-22T13:40:39Z"
+    labels:
+      openshift.io/deployer-pod-for.name: lab-build-an-operator-spawner-2
+    name: lab-build-an-operator-spawner-2-deploy
+    namespace: lab-operator
+    ownerReferences:
+    - apiVersion: v1
+      kind: ReplicationController
+      name: lab-build-an-operator-spawner-2
+      uid: f583461d-b48d-11ea-8277-0a3db79e8570
+    resourceVersion: "243122"
+    selfLink: /api/v1/namespaces/lab-operator/pods/lab-build-an-operator-spawner-2-deploy
+    uid: f58cbb9b-b48d-11ea-8277-0a3db79e8570
+  spec:
+    activeDeadlineSeconds: 21600
+    containers:
+    - env:
+      - name: OPENSHIFT_DEPLOYMENT_NAME
+        value: lab-build-an-operator-spawner-2
+      - name: OPENSHIFT_DEPLOYMENT_NAMESPACE
+        value: lab-operator
+      image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:db8dcd64a6159f3be97d4ad1524e17af17c350e929818a0632f8e20bcbafd293
+      imagePullPolicy: IfNotPresent
+      name: deployment
+      resources: {}
+      securityContext:
+        capabilities:
+          drop:
+          - KILL
+          - MKNOD
+          - SETGID
+          - SETUID
+        runAsUser: 1000520000
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: deployer-token-lb592
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+    - name: deployer-dockercfg-8fwch
+    nodeName: ip-10-0-134-36.sa-east-1.compute.internal
+    priority: 0
+    restartPolicy: Never
+    schedulerName: default-scheduler
+    securityContext:
+      fsGroup: 1000520000
+      seLinuxOptions:
+        level: s0:c23,c7
+    serviceAccount: deployer
+    serviceAccountName: deployer
+    shareProcessNamespace: false
+    terminationGracePeriodSeconds: 10
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - name: deployer-token-lb592
+      secret:
+        defaultMode: 420
+        secretName: deployer-token-lb592
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-22T13:40:39Z"
+      reason: PodCompleted
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-22T13:41:27Z"
+      reason: PodCompleted
+      status: "False"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-22T13:41:27Z"
+      reason: PodCompleted
+      status: "False"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-22T13:40:39Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://c60894c1876e466c6e53d1307e25cefcbb2ee2635f2a02bd96fec3960dd2d82c
+      image: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:db8dcd64a6159f3be97d4ad1524e17af17c350e929818a0632f8e20bcbafd293
+      imageID: quay.io/openshift-release-dev/ocp-v4.0-art-dev@sha256:db8dcd64a6159f3be97d4ad1524e17af17c350e929818a0632f8e20bcbafd293
+      lastState: {}
+      name: deployment
+      ready: false
+      restartCount: 0
+      state:
+        terminated:
+          containerID: cri-o://c60894c1876e466c6e53d1307e25cefcbb2ee2635f2a02bd96fec3960dd2d82c
+          exitCode: 0
+          finishedAt: "2020-06-22T13:41:26Z"
+          reason: Completed
+          startedAt: "2020-06-22T13:40:46Z"
+    hostIP: 10.0.134.36
+    phase: Succeeded
+    podIP: 10.128.2.35
+    qosClass: BestEffort
+    startTime: "2020-06-22T13:40:39Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      k8s.v1.cni.cncf.io/networks-status: |-
+        [{
+            "name": "openshift-sdn",
+            "interface": "eth0",
+            "ips": [
+                "10.128.2.221"
+            ],
+            "default": true,
+            "dns": {}
+        }]
+      openshift.io/deployment-config.latest-version: "2"
+      openshift.io/deployment-config.name: lab-build-an-operator-spawner
+      openshift.io/deployment.name: lab-build-an-operator-spawner-2
+      openshift.io/scc: anyuid
+    creationTimestamp: "2020-06-22T18:25:44Z"
+    generateName: lab-build-an-operator-spawner-2-
+    labels:
+      app: lab-build-an-operator
+      class: spawner
+      deployment: lab-build-an-operator-spawner-2
+      deploymentconfig: lab-build-an-operator-spawner
+      spawner: learning-portal
+    name: lab-build-an-operator-spawner-2-flhlb
+    namespace: lab-operator
+    ownerReferences:
+    - apiVersion: v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicationController
+      name: lab-build-an-operator-spawner-2
+      uid: f583461d-b48d-11ea-8277-0a3db79e8570
+    resourceVersion: "2611037"
+    selfLink: /api/v1/namespaces/lab-operator/pods/lab-build-an-operator-spawner-2-flhlb
+    uid: c92d982b-b4b5-11ea-8277-0a3db79e8570
+  spec:
+    containers:
+    - env:
+      - name: CONFIGURATION_TYPE
+        value: learning-portal
+      - name: APPLICATION_NAME
+        value: lab-build-an-operator
+      - name: WORKSHOP_NAME
+        value: lab-build-an-operator
+      - name: HOMEROOM_NAME
+        value: homeroom
+      - name: SPAWNER_PASSWORD
+        value: openshift
+      - name: WORKSHOP_IMAGE
+      - name: SERVER_LIMIT
+        value: "0"
+      - name: WORKSHOP_MEMORY
+        value: 2Gi
+      - name: CONSOLE_MEMORY
+        value: 128Mi
+      - name: CONSOLE_BRANDING
+        value: openshift
+      - name: CONSOLE_IMAGE
+        value: quay.io/openshift/origin-console:4.2
+      - name: IDLE_TIMEOUT
+        value: "1800"
+      - name: MAX_SESSION_AGE
+        value: "14400"
+      - name: RESOURCE_BUDGET
+        value: custom
+      - name: DOWNLOAD_URL
+      - name: WORKSHOP_FILE
+      - name: OC_VERSION
+      - name: ODO_VERSION
+      - name: KUBECTL_VERSION
+      - name: EXPOSED_PORTS
+      - name: HOMEROOM_LINK
+      image: quay.io/openshifthomeroom/workshop-spawner@sha256:151318399b40735c279771e9b2eb984ae74165500d7f494b8b697c1d3b7e3ead
+      imagePullPolicy: IfNotPresent
+      livenessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /hub/api
+          port: 8080
+          scheme: HTTP
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      name: spawner
+      ports:
+      - containerPort: 8080
+        protocol: TCP
+      readinessProbe:
+        failureThreshold: 3
+        httpGet:
+          path: /hub/api
+          port: 8080
+          scheme: HTTP
+        periodSeconds: 10
+        successThreshold: 1
+        timeoutSeconds: 1
+      resources:
+        limits:
+          memory: 768Mi
+        requests:
+          memory: 768Mi
+      securityContext:
+        capabilities:
+          drop:
+          - MKNOD
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /opt/app-root/configs
+        name: configs
+      - mountPath: /opt/app-root/resources
+        name: resources
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: lab-build-an-operator-spawner-token-pxh5f
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+    - name: lab-build-an-operator-spawner-dockercfg-lcr2c
+    nodeName: ip-10-0-134-36.sa-east-1.compute.internal
+    priority: 0
+    restartPolicy: Always
+    schedulerName: default-scheduler
+    securityContext:
+      seLinuxOptions:
+        level: s0:c23,c7
+    serviceAccount: lab-build-an-operator-spawner
+    serviceAccountName: lab-build-an-operator-spawner
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: lab-build-an-operator-spawner-configs
+      name: configs
+    - configMap:
+        defaultMode: 420
+        name: lab-build-an-operator-session-resources
+      name: resources
+    - name: lab-build-an-operator-spawner-token-pxh5f
+      secret:
+        defaultMode: 420
+        secretName: lab-build-an-operator-spawner-token-pxh5f
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-22T18:25:44Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-26T12:02:11Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-26T12:02:11Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-22T18:25:44Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://c3575c8d0dd863c68875aa01dee3abfe49fdd7d07114bd86fca8d04d0399f781
+      image: quay.io/openshifthomeroom/workshop-spawner@sha256:151318399b40735c279771e9b2eb984ae74165500d7f494b8b697c1d3b7e3ead
+      imageID: quay.io/openshifthomeroom/workshop-spawner@sha256:151318399b40735c279771e9b2eb984ae74165500d7f494b8b697c1d3b7e3ead
+      lastState:
+        terminated:
+          containerID: cri-o://75419b2b2169a1ccc99b5beb0ab80d8705af0d622c4cc784867382c6d77a2cd5
+          exitCode: 1
+          finishedAt: "2020-06-26T12:01:36Z"
+          reason: Error
+          startedAt: "2020-06-26T12:01:32Z"
+      name: spawner
+      ready: true
+      restartCount: 29
+      state:
+        running:
+          startedAt: "2020-06-26T12:01:59Z"
+    hostIP: 10.0.134.36
+    phase: Running
+    podIP: 10.128.2.221
+    qosClass: Burstable
+    startTime: "2020-06-22T18:25:44Z"
+- apiVersion: v1
+  kind: Pod
+  metadata:
+    annotations:
+      alpha.image.policy.openshift.io/resolve-names: '*'
+      hub.jupyter.org/username: user1
+      k8s.v1.cni.cncf.io/networks-status: |-
+        [{
+            "name": "openshift-sdn",
+            "interface": "eth0",
+            "ips": [
+                "10.130.2.26"
+            ],
+            "default": true,
+            "dns": {}
+        }]
+      openshift.io/scc: privileged
+    creationTimestamp: "2020-06-26T12:05:45Z"
+    labels:
+      app: lab-build-an-operator
+      class: session
+      component: singleuser-server
+      spawner: learning-portal
+      user: user1
+    name: lab-build-an-operator-user-user1
+    namespace: lab-operator
+    resourceVersion: "2615924"
+    selfLink: /api/v1/namespaces/lab-operator/pods/lab-build-an-operator-user-user1
+    uid: 5d66bc03-b7a5-11ea-9490-0a64f989d73e
+  spec:
+    automountServiceAccountToken: true
+    containers:
+    - args:
+      - start-singleuser.sh
+      - --ip=0.0.0.0
+      - --port=10080
+      env:
+      - name: JUPYTERHUB_ROUTE
+        value: https://lab-build-an-operator-lab-operator.apps.ocp-nlppmjlkoyrewqz200621.do280.rht-la.nextcle.com
+      - name: CLUSTER_SUBDOMAIN
+        value: apps.ocp-nlppmjlkoyrewqz200621.do280.rht-la.nextcle.com
+      - name: DEPLOYMENT_TYPE
+        value: spawner
+      - name: CONFIGURATION_TYPE
+        value: learning-portal
+      - name: CONSOLE_URL
+        value: http://localhost:10083
+      - name: DOWNLOAD_URL
+      - name: WORKSHOP_FILE
+      - name: RESTART_URL
+        value: /restart
+      - name: JUPYTERHUB_API_TOKEN
+        value: 1255c6fab685486883d0f388c334f278
+      - name: JPY_API_TOKEN
+        value: 1255c6fab685486883d0f388c334f278
+      - name: JUPYTERHUB_CLIENT_ID
+        value: jupyterhub-user-user1
+      - name: JUPYTERHUB_HOST
+      - name: JUPYTERHUB_OAUTH_CALLBACK_URL
+        value: /user/user1/oauth_callback
+      - name: JUPYTERHUB_USER
+        value: user1
+      - name: JUPYTERHUB_SERVER_NAME
+      - name: JUPYTERHUB_API_URL
+        value: http://lab-build-an-operator-spawner:8081/hub/api
+      - name: JUPYTERHUB_ACTIVITY_URL
+        value: http://lab-build-an-operator-spawner:8081/hub/api/users/user1/activity
+      - name: JUPYTERHUB_BASE_URL
+        value: /
+      - name: JUPYTERHUB_SERVICE_PREFIX
+        value: /user/user1/
+      - name: MEM_LIMIT
+        value: "2147483648"
+      - name: JUPYTER_IMAGE_SPEC
+        value: image-registry.openshift-image-registry.svc:5000/lab-operator/lab-build-an-operator-session:latest
+      - name: JUPYTER_IMAGE
+        value: image-registry.openshift-image-registry.svc:5000/lab-operator/lab-build-an-operator-session:latest
+      - name: PROJECT_NAMESPACE
+        value: lab-build-an-operator-user1
+      - name: SPAWNER_NAMESPACE
+        value: lab-operator
+      - name: SPAWNER_APPLICATION
+        value: lab-build-an-operator
+      image: quay.io/openshiftlabs/lab-build-an-operator@sha256:c9a5c12849a98a0199a33447f85c76e34e2c75a4c40469a983af3a3256249944
+      imagePullPolicy: Always
+      lifecycle: {}
+      name: notebook
+      ports:
+      - containerPort: 10080
+        name: notebook-port
+        protocol: TCP
+      resources:
+        limits:
+          memory: "2147483648"
+        requests:
+          memory: "2147483648"
+      securityContext:
+        privileged: true
+        runAsGroup: 0
+        runAsUser: 1001
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /opt/workshop/envvars
+        name: envvars
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: lab-build-an-operator-user1-token-wz8f5
+        readOnly: true
+    - command:
+      - /opt/bridge/bin/bridge
+      env:
+      - name: BRIDGE_K8S_MODE
+        value: in-cluster
+      - name: BRIDGE_LISTEN
+        value: http://0.0.0.0:10083
+      - name: BRIDGE_BASE_ADDRESS
+        value: https://lab-build-an-operator-lab-operator.apps.ocp-nlppmjlkoyrewqz200621.do280.rht-la.nextcle.com/
+      - name: BRIDGE_BASE_PATH
+        value: /user/user1/console/
+      - name: BRIDGE_PUBLIC_DIR
+        value: /opt/bridge/static
+      - name: BRIDGE_USER_AUTH
+        value: disabled
+      - name: BRIDGE_BRANDING
+        value: openshift
+      image: quay.io/openshift/origin-console:4.2
+      imagePullPolicy: IfNotPresent
+      name: console
+      resources:
+        limits:
+          memory: 128Mi
+        requests:
+          memory: 128Mi
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+        name: lab-build-an-operator-user1-token-wz8f5
+        readOnly: true
+    dnsPolicy: ClusterFirst
+    enableServiceLinks: true
+    imagePullSecrets:
+    - name: lab-build-an-operator-user1-dockercfg-c5nc8
+    nodeName: ip-10-0-136-20.sa-east-1.compute.internal
+    priority: 0
+    restartPolicy: OnFailure
+    schedulerName: default-scheduler
+    securityContext:
+      fsGroup: 1001
+    serviceAccount: lab-build-an-operator-user1
+    serviceAccountName: lab-build-an-operator-user1
+    terminationGracePeriodSeconds: 30
+    tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoSchedule
+      key: node.kubernetes.io/memory-pressure
+      operator: Exists
+    volumes:
+    - configMap:
+        defaultMode: 420
+        name: lab-build-an-operator-session-envvars
+      name: envvars
+    - name: lab-build-an-operator-user1-token-wz8f5
+      secret:
+        defaultMode: 420
+        secretName: lab-build-an-operator-user1-token-wz8f5
+  status:
+    conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-26T12:05:45Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-26T12:07:39Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-26T12:07:39Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2020-06-26T12:05:45Z"
+      status: "True"
+      type: PodScheduled
+    containerStatuses:
+    - containerID: cri-o://b5cbfe4a7db9469454524e17f8ed38409b9799f441b3027f86ad296036eaff99
+      image: quay.io/openshift/origin-console:4.2
+      imageID: quay.io/openshift/origin-console@sha256:1eafd74754a974e220ad5d8b50ba8c935626c6c3448a7b7f7b134be6ea4498a5
+      lastState: {}
+      name: console
+      ready: true
+      restartCount: 0
+      state:
+        running:
+          startedAt: "2020-06-26T12:07:38Z"
+    - containerID: cri-o://7313c987aaa6837468cc5770187e2db0a706c2611bff2c3c29adb8f2b0ea6e05
+      image: quay.io/openshiftlabs/lab-build-an-operator@sha256:c9a5c12849a98a0199a33447f85c76e34e2c75a4c40469a983af3a3256249944
+      imageID: quay.io/openshiftlabs/lab-build-an-operator@sha256:c9a5c12849a98a0199a33447f85c76e34e2c75a4c40469a983af3a3256249944
+      lastState: {}
+      name: notebook
+      ready: true
+      restartCount: 0
+      state:
+        running:
+          startedAt: "2020-06-26T12:07:21Z"
+    hostIP: 10.0.136.20
+    phase: Running
+    podIP: 10.130.2.26
+    qosClass: Burstable
+    startTime: "2020-06-26T12:05:45Z"
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      openshift.io/deployer-pod.completed-at: 2020-06-22 13:40:29 +0000 UTC
+      openshift.io/deployer-pod.created-at: 2020-06-22 13:39:44 +0000 UTC
+      openshift.io/deployer-pod.name: lab-build-an-operator-spawner-1-deploy
+      openshift.io/deployment-config.latest-version: "1"
+      openshift.io/deployment-config.name: lab-build-an-operator-spawner
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: "1"
+      openshift.io/deployment.status-reason: config change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"lab-build-an-operator-spawner","namespace":"lab-operator","selfLink":"/apis/apps.openshift.io/v1/namespaces/lab-operator/deploymentconfigs/lab-build-an-operator-spawner","uid":"d4412b6d-b48d-11ea-aa52-0a580a800034","resourceVersion":"242534","generation":2,"creationTimestamp":"2020-06-22T13:39:43Z","labels":{"app":"lab-build-an-operator","class":"spawner","spawner":"learning-portal"},"annotations":{"kubectl.kubernetes.io/last-applied-configuration":"{\"apiVersion\":\"apps.openshift.io/v1\",\"kind\":\"DeploymentConfig\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"lab-build-an-operator\",\"class\":\"spawner\",\"spawner\":\"learning-portal\"},\"name\":\"lab-build-an-operator-spawner\",\"namespace\":\"lab-operator\"},\"spec\":{\"replicas\":1,\"selector\":{\"deploymentconfig\":\"lab-build-an-operator-spawner\"},\"strategy\":{\"type\":\"Recreate\"},\"template\":{\"metadata\":{\"labels\":{\"app\":\"lab-build-an-operator\",\"class\":\"spawner\",\"deploymentconfig\":\"lab-build-an-operator-spawner\",\"spawner\":\"learning-portal\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"CONFIGURATION_TYPE\",\"value\":\"learning-portal\"},{\"name\":\"APPLICATION_NAME\",\"value\":\"lab-build-an-operator\"},{\"name\":\"WORKSHOP_NAME\",\"value\":\"lab-build-an-operator\"},{\"name\":\"HOMEROOM_NAME\",\"value\":\"homeroom\"},{\"name\":\"SPAWNER_PASSWORD\",\"value\":\"openshift\"},{\"name\":\"WORKSHOP_IMAGE\",\"value\":\"\"},{\"name\":\"SERVER_LIMIT\",\"value\":\"0\"},{\"name\":\"WORKSHOP_MEMORY\",\"value\":\"2Gi\"},{\"name\":\"CONSOLE_MEMORY\",\"value\":\"128Mi\"},{\"name\":\"CONSOLE_BRANDING\",\"value\":\"openshift\"},{\"name\":\"CONSOLE_IMAGE\",\"value\":\"quay.io/openshift/origin-console:4.2\"},{\"name\":\"IDLE_TIMEOUT\",\"value\":\"1800\"},{\"name\":\"MAX_SESSION_AGE\",\"value\":\"14400\"},{\"name\":\"RESOURCE_BUDGET\",\"value\":\"custom\"},{\"name\":\"DOWNLOAD_URL\",\"value\":\"\"},{\"name\":\"WORKSHOP_FILE\",\"value\":\"\"},{\"name\":\"OC_VERSION\",\"value\":\"\"},{\"name\":\"ODO_VERSION\",\"value\":\"\"},{\"name\":\"KUBECTL_VERSION\",\"value\":\"\"},{\"name\":\"EXPOSED_PORTS\",\"value\":\"\"},{\"name\":\"HOMEROOM_LINK\",\"value\":\"\"}],\"livenessProbe\":{\"failureThreshold\":3,\"httpGet\":{\"path\":\"/hub/api\",\"port\":8080,\"scheme\":\"HTTP\"},\"periodSeconds\":10,\"successThreshold\":1,\"timeoutSeconds\":1},\"name\":\"spawner\",\"ports\":[{\"containerPort\":8080,\"protocol\":\"TCP\"}],\"readinessProbe\":{\"failureThreshold\":3,\"httpGet\":{\"path\":\"/hub/api\",\"port\":8080,\"scheme\":\"HTTP\"},\"periodSeconds\":10,\"successThreshold\":1,\"timeoutSeconds\":1},\"resources\":{\"limits\":{\"memory\":\"768Mi\"},\"requests\":{\"memory\":\"768Mi\"}},\"volumeMounts\":[{\"mountPath\":\"/opt/app-root/configs\",\"name\":\"configs\"},{\"mountPath\":\"/opt/app-root/resources\",\"name\":\"resources\"}]}],\"serviceAccountName\":\"lab-build-an-operator-spawner\",\"volumes\":[{\"configMap\":{\"defaultMode\":420,\"name\":\"lab-build-an-operator-spawner-configs\"},\"name\":\"configs\"},{\"configMap\":{\"defaultMode\":420,\"name\":\"lab-build-an-operator-session-resources\"},\"name\":\"resources\"}]}},\"triggers\":[{\"type\":\"ConfigChange\"},{\"imageChangeParams\":{\"automatic\":true,\"containerNames\":[\"spawner\"],\"from\":{\"kind\":\"ImageStreamTag\",\"name\":\"lab-build-an-operator-spawner:latest\"}},\"type\":\"ImageChange\"}]}}\n"}},"spec":{"strategy":{"type":"Recreate","recreateParams":{"timeoutSeconds":600},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["spawner"],"from":{"kind":"ImageStreamTag","namespace":"lab-operator","name":"lab-build-an-operator-spawner:latest"},"lastTriggeredImage":"quay.io/openshifthomeroom/workshop-spawner@sha256:151318399b40735c279771e9b2eb984ae74165500d7f494b8b697c1d3b7e3ead"}}],"replicas":1,"revisionHistoryLimit":10,"test":false,"selector":{"deploymentconfig":"lab-build-an-operator-spawner"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"lab-build-an-operator","class":"spawner","deploymentconfig":"lab-build-an-operator-spawner","spawner":"learning-portal"}},"spec":{"volumes":[{"name":"configs","configMap":{"name":"lab-build-an-operator-spawner-configs","defaultMode":420}},{"name":"resources","configMap":{"name":"lab-build-an-operator-session-resources","defaultMode":420}}],"containers":[{"name":"spawner","image":"quay.io/openshifthomeroom/workshop-spawner@sha256:151318399b40735c279771e9b2eb984ae74165500d7f494b8b697c1d3b7e3ead","ports":[{"containerPort":8080,"protocol":"TCP"}],"env":[{"name":"CONFIGURATION_TYPE","value":"learning-portal"},{"name":"APPLICATION_NAME","value":"lab-build-an-operator"},{"name":"WORKSHOP_NAME","value":"lab-build-an-operator"},{"name":"HOMEROOM_NAME","value":"homeroom"},{"name":"SPAWNER_PASSWORD","value":"openshift"},{"name":"WORKSHOP_IMAGE"},{"name":"SERVER_LIMIT","value":"0"},{"name":"WORKSHOP_MEMORY","value":"2Gi"},{"name":"CONSOLE_MEMORY","value":"128Mi"},{"name":"CONSOLE_BRANDING","value":"openshift"},{"name":"CONSOLE_IMAGE","value":"quay.io/openshift/origin-console:4.2"},{"name":"IDLE_TIMEOUT","value":"1800"},{"name":"MAX_SESSION_AGE","value":"14400"},{"name":"RESOURCE_BUDGET","value":"custom"},{"name":"DOWNLOAD_URL"},{"name":"WORKSHOP_FILE"},{"name":"OC_VERSION"},{"name":"ODO_VERSION"},{"name":"KUBECTL_VERSION"},{"name":"EXPOSED_PORTS"},{"name":"HOMEROOM_LINK"}],"resources":{"limits":{"memory":"768Mi"},"requests":{"memory":"768Mi"}},"volumeMounts":[{"name":"configs","mountPath":"/opt/app-root/configs"},{"name":"resources","mountPath":"/opt/app-root/resources"}],"livenessProbe":{"httpGet":{"path":"/hub/api","port":8080,"scheme":"HTTP"},"timeoutSeconds":1,"periodSeconds":10,"successThreshold":1,"failureThreshold":3},"readinessProbe":{"httpGet":{"path":"/hub/api","port":8080,"scheme":"HTTP"},"timeoutSeconds":1,"periodSeconds":10,"successThreshold":1,"failureThreshold":3},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"IfNotPresent"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","serviceAccountName":"lab-build-an-operator-spawner","serviceAccount":"lab-build-an-operator-spawner","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":1,"observedGeneration":1,"replicas":0,"updatedReplicas":0,"availableReplicas":0,"unavailableReplicas":0,"details":{"message":"config change","causes":[{"type":"ConfigChange"}]},"conditions":[{"type":"Available","status":"False","lastUpdateTime":"2020-06-22T13:39:43Z","lastTransitionTime":"2020-06-22T13:39:43Z","message":"Deployment config does not have minimum availability."}]}}
+    creationTimestamp: "2020-06-22T13:39:44Z"
+    generation: 3
+    labels:
+      app: lab-build-an-operator
+      class: spawner
+      openshift.io/deployment-config.name: lab-build-an-operator-spawner
+      spawner: learning-portal
+    name: lab-build-an-operator-spawner-1
+    namespace: lab-operator
+    ownerReferences:
+    - apiVersion: apps.openshift.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: DeploymentConfig
+      name: lab-build-an-operator-spawner
+      uid: d4412b6d-b48d-11ea-aa52-0a580a800034
+    resourceVersion: "242899"
+    selfLink: /api/v1/namespaces/lab-operator/replicationcontrollers/lab-build-an-operator-spawner-1
+    uid: d500252c-b48d-11ea-8277-0a3db79e8570
+  spec:
+    replicas: 0
+    selector:
+      deployment: lab-build-an-operator-spawner-1
+      deploymentconfig: lab-build-an-operator-spawner
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "1"
+          openshift.io/deployment-config.name: lab-build-an-operator-spawner
+          openshift.io/deployment.name: lab-build-an-operator-spawner-1
+        creationTimestamp: null
+        labels:
+          app: lab-build-an-operator
+          class: spawner
+          deployment: lab-build-an-operator-spawner-1
+          deploymentconfig: lab-build-an-operator-spawner
+          spawner: learning-portal
+      spec:
+        containers:
+        - env:
+          - name: CONFIGURATION_TYPE
+            value: learning-portal
+          - name: APPLICATION_NAME
+            value: lab-build-an-operator
+          - name: WORKSHOP_NAME
+            value: lab-build-an-operator
+          - name: HOMEROOM_NAME
+            value: homeroom
+          - name: SPAWNER_PASSWORD
+            value: openshift
+          - name: WORKSHOP_IMAGE
+          - name: SERVER_LIMIT
+            value: "0"
+          - name: WORKSHOP_MEMORY
+            value: 2Gi
+          - name: CONSOLE_MEMORY
+            value: 128Mi
+          - name: CONSOLE_BRANDING
+            value: openshift
+          - name: CONSOLE_IMAGE
+            value: quay.io/openshift/origin-console:4.2
+          - name: IDLE_TIMEOUT
+            value: "1800"
+          - name: MAX_SESSION_AGE
+            value: "14400"
+          - name: RESOURCE_BUDGET
+            value: custom
+          - name: DOWNLOAD_URL
+          - name: WORKSHOP_FILE
+          - name: OC_VERSION
+          - name: ODO_VERSION
+          - name: KUBECTL_VERSION
+          - name: EXPOSED_PORTS
+          - name: HOMEROOM_LINK
+          image: quay.io/openshifthomeroom/workshop-spawner@sha256:151318399b40735c279771e9b2eb984ae74165500d7f494b8b697c1d3b7e3ead
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /hub/api
+              port: 8080
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: spawner
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /hub/api
+              port: 8080
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              memory: 768Mi
+            requests:
+              memory: 768Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/app-root/configs
+            name: configs
+          - mountPath: /opt/app-root/resources
+            name: resources
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: lab-build-an-operator-spawner
+        serviceAccountName: lab-build-an-operator-spawner
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: lab-build-an-operator-spawner-configs
+          name: configs
+        - configMap:
+            defaultMode: 420
+            name: lab-build-an-operator-session-resources
+          name: resources
+  status:
+    observedGeneration: 3
+    replicas: 0
+- apiVersion: v1
+  kind: ReplicationController
+  metadata:
+    annotations:
+      openshift.io/deployer-pod.completed-at: 2020-06-22 13:41:26 +0000 UTC
+      openshift.io/deployer-pod.created-at: 2020-06-22 13:40:39 +0000 UTC
+      openshift.io/deployer-pod.name: lab-build-an-operator-spawner-2-deploy
+      openshift.io/deployment-config.latest-version: "2"
+      openshift.io/deployment-config.name: lab-build-an-operator-spawner
+      openshift.io/deployment.phase: Complete
+      openshift.io/deployment.replicas: "1"
+      openshift.io/deployment.status-reason: manual change
+      openshift.io/encoded-deployment-config: |
+        {"kind":"DeploymentConfig","apiVersion":"apps.openshift.io/v1","metadata":{"name":"lab-build-an-operator-spawner","namespace":"lab-operator","selfLink":"/apis/apps.openshift.io/v1/namespaces/lab-operator/deploymentconfigs/lab-build-an-operator-spawner","uid":"d4412b6d-b48d-11ea-aa52-0a580a800034","resourceVersion":"242836","generation":3,"creationTimestamp":"2020-06-22T13:39:43Z","labels":{"app":"lab-build-an-operator","class":"spawner","spawner":"learning-portal"},"annotations":{"kubectl.kubernetes.io/last-applied-configuration":"{\"apiVersion\":\"apps.openshift.io/v1\",\"kind\":\"DeploymentConfig\",\"metadata\":{\"annotations\":{},\"labels\":{\"app\":\"lab-build-an-operator\",\"class\":\"spawner\",\"spawner\":\"learning-portal\"},\"name\":\"lab-build-an-operator-spawner\",\"namespace\":\"lab-operator\"},\"spec\":{\"replicas\":1,\"selector\":{\"deploymentconfig\":\"lab-build-an-operator-spawner\"},\"strategy\":{\"type\":\"Recreate\"},\"template\":{\"metadata\":{\"labels\":{\"app\":\"lab-build-an-operator\",\"class\":\"spawner\",\"deploymentconfig\":\"lab-build-an-operator-spawner\",\"spawner\":\"learning-portal\"}},\"spec\":{\"containers\":[{\"env\":[{\"name\":\"CONFIGURATION_TYPE\",\"value\":\"learning-portal\"},{\"name\":\"APPLICATION_NAME\",\"value\":\"lab-build-an-operator\"},{\"name\":\"WORKSHOP_NAME\",\"value\":\"lab-build-an-operator\"},{\"name\":\"HOMEROOM_NAME\",\"value\":\"homeroom\"},{\"name\":\"SPAWNER_PASSWORD\",\"value\":\"openshift\"},{\"name\":\"WORKSHOP_IMAGE\",\"value\":\"\"},{\"name\":\"SERVER_LIMIT\",\"value\":\"0\"},{\"name\":\"WORKSHOP_MEMORY\",\"value\":\"2Gi\"},{\"name\":\"CONSOLE_MEMORY\",\"value\":\"128Mi\"},{\"name\":\"CONSOLE_BRANDING\",\"value\":\"openshift\"},{\"name\":\"CONSOLE_IMAGE\",\"value\":\"quay.io/openshift/origin-console:4.2\"},{\"name\":\"IDLE_TIMEOUT\",\"value\":\"1800\"},{\"name\":\"MAX_SESSION_AGE\",\"value\":\"14400\"},{\"name\":\"RESOURCE_BUDGET\",\"value\":\"custom\"},{\"name\":\"DOWNLOAD_URL\",\"value\":\"\"},{\"name\":\"WORKSHOP_FILE\",\"value\":\"\"},{\"name\":\"OC_VERSION\",\"value\":\"\"},{\"name\":\"ODO_VERSION\",\"value\":\"\"},{\"name\":\"KUBECTL_VERSION\",\"value\":\"\"},{\"name\":\"EXPOSED_PORTS\",\"value\":\"\"},{\"name\":\"HOMEROOM_LINK\",\"value\":\"\"}],\"livenessProbe\":{\"failureThreshold\":3,\"httpGet\":{\"path\":\"/hub/api\",\"port\":8080,\"scheme\":\"HTTP\"},\"periodSeconds\":10,\"successThreshold\":1,\"timeoutSeconds\":1},\"name\":\"spawner\",\"ports\":[{\"containerPort\":8080,\"protocol\":\"TCP\"}],\"readinessProbe\":{\"failureThreshold\":3,\"httpGet\":{\"path\":\"/hub/api\",\"port\":8080,\"scheme\":\"HTTP\"},\"periodSeconds\":10,\"successThreshold\":1,\"timeoutSeconds\":1},\"resources\":{\"limits\":{\"memory\":\"768Mi\"},\"requests\":{\"memory\":\"768Mi\"}},\"volumeMounts\":[{\"mountPath\":\"/opt/app-root/configs\",\"name\":\"configs\"},{\"mountPath\":\"/opt/app-root/resources\",\"name\":\"resources\"}]}],\"serviceAccountName\":\"lab-build-an-operator-spawner\",\"volumes\":[{\"configMap\":{\"defaultMode\":420,\"name\":\"lab-build-an-operator-spawner-configs\"},\"name\":\"configs\"},{\"configMap\":{\"defaultMode\":420,\"name\":\"lab-build-an-operator-session-resources\"},\"name\":\"resources\"}]}},\"triggers\":[{\"type\":\"ConfigChange\"},{\"imageChangeParams\":{\"automatic\":true,\"containerNames\":[\"spawner\"],\"from\":{\"kind\":\"ImageStreamTag\",\"name\":\"lab-build-an-operator-spawner:latest\"}},\"type\":\"ImageChange\"}]}}\n"}},"spec":{"strategy":{"type":"Recreate","recreateParams":{"timeoutSeconds":600},"resources":{},"activeDeadlineSeconds":21600},"triggers":[{"type":"ConfigChange"},{"type":"ImageChange","imageChangeParams":{"automatic":true,"containerNames":["spawner"],"from":{"kind":"ImageStreamTag","namespace":"lab-operator","name":"lab-build-an-operator-spawner:latest"},"lastTriggeredImage":"quay.io/openshifthomeroom/workshop-spawner@sha256:151318399b40735c279771e9b2eb984ae74165500d7f494b8b697c1d3b7e3ead"}}],"replicas":1,"revisionHistoryLimit":10,"test":false,"selector":{"deploymentconfig":"lab-build-an-operator-spawner"},"template":{"metadata":{"creationTimestamp":null,"labels":{"app":"lab-build-an-operator","class":"spawner","deploymentconfig":"lab-build-an-operator-spawner","spawner":"learning-portal"}},"spec":{"volumes":[{"name":"configs","configMap":{"name":"lab-build-an-operator-spawner-configs","defaultMode":420}},{"name":"resources","configMap":{"name":"lab-build-an-operator-session-resources","defaultMode":420}}],"containers":[{"name":"spawner","image":"quay.io/openshifthomeroom/workshop-spawner@sha256:151318399b40735c279771e9b2eb984ae74165500d7f494b8b697c1d3b7e3ead","ports":[{"containerPort":8080,"protocol":"TCP"}],"env":[{"name":"CONFIGURATION_TYPE","value":"learning-portal"},{"name":"APPLICATION_NAME","value":"lab-build-an-operator"},{"name":"WORKSHOP_NAME","value":"lab-build-an-operator"},{"name":"HOMEROOM_NAME","value":"homeroom"},{"name":"SPAWNER_PASSWORD","value":"openshift"},{"name":"WORKSHOP_IMAGE"},{"name":"SERVER_LIMIT","value":"0"},{"name":"WORKSHOP_MEMORY","value":"2Gi"},{"name":"CONSOLE_MEMORY","value":"128Mi"},{"name":"CONSOLE_BRANDING","value":"openshift"},{"name":"CONSOLE_IMAGE","value":"quay.io/openshift/origin-console:4.2"},{"name":"IDLE_TIMEOUT","value":"1800"},{"name":"MAX_SESSION_AGE","value":"14400"},{"name":"RESOURCE_BUDGET","value":"custom"},{"name":"DOWNLOAD_URL"},{"name":"WORKSHOP_FILE"},{"name":"OC_VERSION"},{"name":"ODO_VERSION"},{"name":"KUBECTL_VERSION"},{"name":"EXPOSED_PORTS"},{"name":"HOMEROOM_LINK"}],"resources":{"limits":{"memory":"768Mi"},"requests":{"memory":"768Mi"}},"volumeMounts":[{"name":"configs","mountPath":"/opt/app-root/configs"},{"name":"resources","mountPath":"/opt/app-root/resources"}],"livenessProbe":{"httpGet":{"path":"/hub/api","port":8080,"scheme":"HTTP"},"timeoutSeconds":1,"periodSeconds":10,"successThreshold":1,"failureThreshold":3},"readinessProbe":{"httpGet":{"path":"/hub/api","port":8080,"scheme":"HTTP"},"timeoutSeconds":1,"periodSeconds":10,"successThreshold":1,"failureThreshold":3},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","imagePullPolicy":"IfNotPresent"}],"restartPolicy":"Always","terminationGracePeriodSeconds":30,"dnsPolicy":"ClusterFirst","serviceAccountName":"lab-build-an-operator-spawner","serviceAccount":"lab-build-an-operator-spawner","securityContext":{},"schedulerName":"default-scheduler"}}},"status":{"latestVersion":2,"observedGeneration":2,"replicas":1,"updatedReplicas":1,"availableReplicas":1,"unavailableReplicas":0,"details":{"message":"manual change","causes":[{"type":"Manual"}]},"conditions":[{"type":"Available","status":"True","lastUpdateTime":"2020-06-22T13:40:29Z","lastTransitionTime":"2020-06-22T13:40:29Z","message":"Deployment config has minimum availability."},{"type":"Progressing","status":"True","lastUpdateTime":"2020-06-22T13:40:30Z","lastTransitionTime":"2020-06-22T13:40:30Z","reason":"NewReplicationControllerAvailable","message":"replication controller \"lab-build-an-operator-spawner-1\" successfully rolled out"}],"readyReplicas":1}}
+    creationTimestamp: "2020-06-22T13:40:39Z"
+    generation: 2
+    labels:
+      app: lab-build-an-operator
+      class: spawner
+      openshift.io/deployment-config.name: lab-build-an-operator-spawner
+      spawner: learning-portal
+    name: lab-build-an-operator-spawner-2
+    namespace: lab-operator
+    ownerReferences:
+    - apiVersion: apps.openshift.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: DeploymentConfig
+      name: lab-build-an-operator-spawner
+      uid: d4412b6d-b48d-11ea-aa52-0a580a800034
+    resourceVersion: "2611039"
+    selfLink: /api/v1/namespaces/lab-operator/replicationcontrollers/lab-build-an-operator-spawner-2
+    uid: f583461d-b48d-11ea-8277-0a3db79e8570
+  spec:
+    replicas: 1
+    selector:
+      deployment: lab-build-an-operator-spawner-2
+      deploymentconfig: lab-build-an-operator-spawner
+    template:
+      metadata:
+        annotations:
+          openshift.io/deployment-config.latest-version: "2"
+          openshift.io/deployment-config.name: lab-build-an-operator-spawner
+          openshift.io/deployment.name: lab-build-an-operator-spawner-2
+        creationTimestamp: null
+        labels:
+          app: lab-build-an-operator
+          class: spawner
+          deployment: lab-build-an-operator-spawner-2
+          deploymentconfig: lab-build-an-operator-spawner
+          spawner: learning-portal
+      spec:
+        containers:
+        - env:
+          - name: CONFIGURATION_TYPE
+            value: learning-portal
+          - name: APPLICATION_NAME
+            value: lab-build-an-operator
+          - name: WORKSHOP_NAME
+            value: lab-build-an-operator
+          - name: HOMEROOM_NAME
+            value: homeroom
+          - name: SPAWNER_PASSWORD
+            value: openshift
+          - name: WORKSHOP_IMAGE
+          - name: SERVER_LIMIT
+            value: "0"
+          - name: WORKSHOP_MEMORY
+            value: 2Gi
+          - name: CONSOLE_MEMORY
+            value: 128Mi
+          - name: CONSOLE_BRANDING
+            value: openshift
+          - name: CONSOLE_IMAGE
+            value: quay.io/openshift/origin-console:4.2
+          - name: IDLE_TIMEOUT
+            value: "1800"
+          - name: MAX_SESSION_AGE
+            value: "14400"
+          - name: RESOURCE_BUDGET
+            value: custom
+          - name: DOWNLOAD_URL
+          - name: WORKSHOP_FILE
+          - name: OC_VERSION
+          - name: ODO_VERSION
+          - name: KUBECTL_VERSION
+          - name: EXPOSED_PORTS
+          - name: HOMEROOM_LINK
+          image: quay.io/openshifthomeroom/workshop-spawner@sha256:151318399b40735c279771e9b2eb984ae74165500d7f494b8b697c1d3b7e3ead
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /hub/api
+              port: 8080
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: spawner
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /hub/api
+              port: 8080
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              memory: 768Mi
+            requests:
+              memory: 768Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/app-root/configs
+            name: configs
+          - mountPath: /opt/app-root/resources
+            name: resources
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: lab-build-an-operator-spawner
+        serviceAccountName: lab-build-an-operator-spawner
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: lab-build-an-operator-spawner-configs
+          name: configs
+        - configMap:
+            defaultMode: 420
+            name: lab-build-an-operator-session-resources
+          name: resources
+  status:
+    availableReplicas: 1
+    fullyLabeledReplicas: 1
+    observedGeneration: 2
+    readyReplicas: 1
+    replicas: 1
+- apiVersion: v1
+  kind: Service
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"lab-build-an-operator","class":"spawner","spawner":"learning-portal"},"name":"lab-build-an-operator-spawner","namespace":"lab-operator"},"spec":{"ports":[{"name":"8080-tcp","port":8080,"protocol":"TCP","targetPort":8080},{"name":"8081-tcp","port":8081,"protocol":"TCP","targetPort":8081}],"selector":{"deploymentconfig":"lab-build-an-operator-spawner"}}}
+    creationTimestamp: "2020-06-22T13:39:44Z"
+    labels:
+      app: lab-build-an-operator
+      class: spawner
+      spawner: learning-portal
+    name: lab-build-an-operator-spawner
+    namespace: lab-operator
+    resourceVersion: "242530"
+    selfLink: /api/v1/namespaces/lab-operator/services/lab-build-an-operator-spawner
+    uid: d4c56580-b48d-11ea-9db7-0a64f989d73e
+  spec:
+    clusterIP: 172.30.236.13
+    ports:
+    - name: 8080-tcp
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    - name: 8081-tcp
+      port: 8081
+      protocol: TCP
+      targetPort: 8081
+    selector:
+      deploymentconfig: lab-build-an-operator-spawner
+    sessionAffinity: None
+    type: ClusterIP
+  status:
+    loadBalancer: {}
+- apiVersion: apps.openshift.io/v1
+  kind: DeploymentConfig
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"apps.openshift.io/v1","kind":"DeploymentConfig","metadata":{"annotations":{},"labels":{"app":"lab-build-an-operator","class":"spawner","spawner":"learning-portal"},"name":"lab-build-an-operator-spawner","namespace":"lab-operator"},"spec":{"replicas":1,"selector":{"deploymentconfig":"lab-build-an-operator-spawner"},"strategy":{"type":"Recreate"},"template":{"metadata":{"labels":{"app":"lab-build-an-operator","class":"spawner","deploymentconfig":"lab-build-an-operator-spawner","spawner":"learning-portal"}},"spec":{"containers":[{"env":[{"name":"CONFIGURATION_TYPE","value":"learning-portal"},{"name":"APPLICATION_NAME","value":"lab-build-an-operator"},{"name":"WORKSHOP_NAME","value":"lab-build-an-operator"},{"name":"HOMEROOM_NAME","value":"homeroom"},{"name":"SPAWNER_PASSWORD","value":"openshift"},{"name":"WORKSHOP_IMAGE","value":""},{"name":"SERVER_LIMIT","value":"0"},{"name":"WORKSHOP_MEMORY","value":"2Gi"},{"name":"CONSOLE_MEMORY","value":"128Mi"},{"name":"CONSOLE_BRANDING","value":"openshift"},{"name":"CONSOLE_IMAGE","value":"quay.io/openshift/origin-console:4.2"},{"name":"IDLE_TIMEOUT","value":"1800"},{"name":"MAX_SESSION_AGE","value":"14400"},{"name":"RESOURCE_BUDGET","value":"custom"},{"name":"DOWNLOAD_URL","value":""},{"name":"WORKSHOP_FILE","value":""},{"name":"OC_VERSION","value":""},{"name":"ODO_VERSION","value":""},{"name":"KUBECTL_VERSION","value":""},{"name":"EXPOSED_PORTS","value":""},{"name":"HOMEROOM_LINK","value":""}],"livenessProbe":{"failureThreshold":3,"httpGet":{"path":"/hub/api","port":8080,"scheme":"HTTP"},"periodSeconds":10,"successThreshold":1,"timeoutSeconds":1},"name":"spawner","ports":[{"containerPort":8080,"protocol":"TCP"}],"readinessProbe":{"failureThreshold":3,"httpGet":{"path":"/hub/api","port":8080,"scheme":"HTTP"},"periodSeconds":10,"successThreshold":1,"timeoutSeconds":1},"resources":{"limits":{"memory":"768Mi"},"requests":{"memory":"768Mi"}},"volumeMounts":[{"mountPath":"/opt/app-root/configs","name":"configs"},{"mountPath":"/opt/app-root/resources","name":"resources"}]}],"serviceAccountName":"lab-build-an-operator-spawner","volumes":[{"configMap":{"defaultMode":420,"name":"lab-build-an-operator-spawner-configs"},"name":"configs"},{"configMap":{"defaultMode":420,"name":"lab-build-an-operator-session-resources"},"name":"resources"}]}},"triggers":[{"type":"ConfigChange"},{"imageChangeParams":{"automatic":true,"containerNames":["spawner"],"from":{"kind":"ImageStreamTag","name":"lab-build-an-operator-spawner:latest"}},"type":"ImageChange"}]}}
+    creationTimestamp: "2020-06-22T13:39:43Z"
+    generation: 3
+    labels:
+      app: lab-build-an-operator
+      class: spawner
+      spawner: learning-portal
+    name: lab-build-an-operator-spawner
+    namespace: lab-operator
+    resourceVersion: "2611040"
+    selfLink: /apis/apps.openshift.io/v1/namespaces/lab-operator/deploymentconfigs/lab-build-an-operator-spawner
+    uid: d4412b6d-b48d-11ea-aa52-0a580a800034
+  spec:
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      deploymentconfig: lab-build-an-operator-spawner
+    strategy:
+      activeDeadlineSeconds: 21600
+      recreateParams:
+        timeoutSeconds: 600
+      resources: {}
+      type: Recreate
+    template:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: lab-build-an-operator
+          class: spawner
+          deploymentconfig: lab-build-an-operator-spawner
+          spawner: learning-portal
+      spec:
+        containers:
+        - env:
+          - name: CONFIGURATION_TYPE
+            value: learning-portal
+          - name: APPLICATION_NAME
+            value: lab-build-an-operator
+          - name: WORKSHOP_NAME
+            value: lab-build-an-operator
+          - name: HOMEROOM_NAME
+            value: homeroom
+          - name: SPAWNER_PASSWORD
+            value: openshift
+          - name: WORKSHOP_IMAGE
+          - name: SERVER_LIMIT
+            value: "0"
+          - name: WORKSHOP_MEMORY
+            value: 2Gi
+          - name: CONSOLE_MEMORY
+            value: 128Mi
+          - name: CONSOLE_BRANDING
+            value: openshift
+          - name: CONSOLE_IMAGE
+            value: quay.io/openshift/origin-console:4.2
+          - name: IDLE_TIMEOUT
+            value: "1800"
+          - name: MAX_SESSION_AGE
+            value: "14400"
+          - name: RESOURCE_BUDGET
+            value: custom
+          - name: DOWNLOAD_URL
+          - name: WORKSHOP_FILE
+          - name: OC_VERSION
+          - name: ODO_VERSION
+          - name: KUBECTL_VERSION
+          - name: EXPOSED_PORTS
+          - name: HOMEROOM_LINK
+          image: quay.io/openshifthomeroom/workshop-spawner@sha256:151318399b40735c279771e9b2eb984ae74165500d7f494b8b697c1d3b7e3ead
+          imagePullPolicy: IfNotPresent
+          livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /hub/api
+              port: 8080
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          name: spawner
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /hub/api
+              port: 8080
+              scheme: HTTP
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 1
+          resources:
+            limits:
+              memory: 768Mi
+            requests:
+              memory: 768Mi
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/app-root/configs
+            name: configs
+          - mountPath: /opt/app-root/resources
+            name: resources
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        serviceAccount: lab-build-an-operator-spawner
+        serviceAccountName: lab-build-an-operator-spawner
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - configMap:
+            defaultMode: 420
+            name: lab-build-an-operator-spawner-configs
+          name: configs
+        - configMap:
+            defaultMode: 420
+            name: lab-build-an-operator-session-resources
+          name: resources
+    test: false
+    triggers:
+    - type: ConfigChange
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+        - spawner
+        from:
+          kind: ImageStreamTag
+          name: lab-build-an-operator-spawner:latest
+          namespace: lab-operator
+        lastTriggeredImage: quay.io/openshifthomeroom/workshop-spawner@sha256:151318399b40735c279771e9b2eb984ae74165500d7f494b8b697c1d3b7e3ead
+      type: ImageChange
+  status:
+    availableReplicas: 1
+    conditions:
+    - lastTransitionTime: "2020-06-22T13:41:15Z"
+      lastUpdateTime: "2020-06-22T13:41:27Z"
+      message: replication controller "lab-build-an-operator-spawner-2" successfully
+        rolled out
+      reason: NewReplicationControllerAvailable
+      status: "True"
+      type: Progressing
+    - lastTransitionTime: "2020-06-26T12:02:11Z"
+      lastUpdateTime: "2020-06-26T12:02:11Z"
+      message: Deployment config has minimum availability.
+      status: "True"
+      type: Available
+    details:
+      causes:
+      - type: Manual
+      message: manual change
+    latestVersion: 2
+    observedGeneration: 3
+    readyReplicas: 1
+    replicas: 1
+    unavailableReplicas: 0
+    updatedReplicas: 1
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"image.openshift.io/v1","kind":"ImageStream","metadata":{"annotations":{},"labels":{"app":"lab-build-an-operator","class":"spawner","spawner":"learning-portal"},"name":"lab-build-an-operator-session","namespace":"lab-operator"},"spec":{"lookupPolicy":{"local":true},"tags":[{"from":{"kind":"DockerImage","name":"quay.io/openshifthomeroom/workshop-dashboard:5.0.0"},"name":"latest"}]}}
+      openshift.io/image.dockerRepositoryCheck: "2020-06-22T13:40:46Z"
+    creationTimestamp: "2020-06-22T13:39:45Z"
+    generation: 4
+    labels:
+      app: lab-build-an-operator
+      class: spawner
+      spawner: learning-portal
+    name: lab-build-an-operator-session
+    namespace: lab-operator
+    resourceVersion: "242882"
+    selfLink: /apis/image.openshift.io/v1/namespaces/lab-operator/imagestreams/lab-build-an-operator-session
+    uid: d5cd9f47-b48d-11ea-af8e-0a580a810048
+  spec:
+    lookupPolicy:
+      local: true
+    tags:
+    - annotations: null
+      from:
+        kind: DockerImage
+        name: quay.io/openshiftlabs/lab-build-an-operator:1.0
+      generation: 4
+      importPolicy: {}
+      name: latest
+      referencePolicy:
+        type: Source
+  status:
+    dockerImageRepository: image-registry.openshift-image-registry.svc:5000/lab-operator/lab-build-an-operator-session
+    tags:
+    - items:
+      - created: "2020-06-22T13:40:46Z"
+        dockerImageReference: quay.io/openshiftlabs/lab-build-an-operator@sha256:c9a5c12849a98a0199a33447f85c76e34e2c75a4c40469a983af3a3256249944
+        generation: 4
+        image: sha256:c9a5c12849a98a0199a33447f85c76e34e2c75a4c40469a983af3a3256249944
+      - created: "2020-06-22T13:39:53Z"
+        dockerImageReference: quay.io/openshifthomeroom/workshop-dashboard@sha256:4ca0d26e10f1f4b6831094cec869499332a9a9193025147e415f6b0f80a46491
+        generation: 2
+        image: sha256:4ca0d26e10f1f4b6831094cec869499332a9a9193025147e415f6b0f80a46491
+      tag: latest
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"image.openshift.io/v1","kind":"ImageStream","metadata":{"annotations":{},"labels":{"app":"lab-build-an-operator","class":"spawner","spawner":"learning-portal"},"name":"lab-build-an-operator-spawner","namespace":"lab-operator"},"spec":{"tags":[{"from":{"kind":"DockerImage","name":"quay.io/openshifthomeroom/workshop-spawner:7.1.0"},"name":"latest"}]}}
+      openshift.io/image.dockerRepositoryCheck: "2020-06-22T13:39:41Z"
+    creationTimestamp: "2020-06-22T13:39:39Z"
+    generation: 2
+    labels:
+      app: lab-build-an-operator
+      class: spawner
+      spawner: learning-portal
+    name: lab-build-an-operator-spawner
+    namespace: lab-operator
+    resourceVersion: "242514"
+    selfLink: /apis/image.openshift.io/v1/namespaces/lab-operator/imagestreams/lab-build-an-operator-spawner
+    uid: d2356a87-b48d-11ea-9db2-0a580a82003e
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations: null
+      from:
+        kind: DockerImage
+        name: quay.io/openshifthomeroom/workshop-spawner:7.1.0
+      generation: 2
+      importPolicy: {}
+      name: latest
+      referencePolicy:
+        type: Source
+  status:
+    dockerImageRepository: image-registry.openshift-image-registry.svc:5000/lab-operator/lab-build-an-operator-spawner
+    tags:
+    - items:
+      - created: "2020-06-22T13:39:41Z"
+        dockerImageReference: quay.io/openshifthomeroom/workshop-spawner@sha256:151318399b40735c279771e9b2eb984ae74165500d7f494b8b697c1d3b7e3ead
+        generation: 2
+        image: sha256:151318399b40735c279771e9b2eb984ae74165500d7f494b8b697c1d3b7e3ead
+      tag: latest
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    annotations:
+      homeroom/description: Workshop on Operators and the Operator SDK
+      homeroom/group: homeroom
+      homeroom/title: Build an Operator
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"route.openshift.io/v1","kind":"Route","metadata":{"annotations":{"homeroom/description":"Workshop on Operators and the Operator SDK","homeroom/group":"homeroom","homeroom/title":"Build an Operator","kubernetes.io/tls-acme":"false"},"labels":{"app":"lab-build-an-operator","class":"spawner","spawner":"learning-portal"},"name":"lab-build-an-operator-spawner","namespace":"lab-operator"},"spec":{"host":"lab-build-an-operator-lab-operator.apps.ocp-nlppmjlkoyrewqz200621.do280.rht-la.nextcle.com","port":{"targetPort":"8080-tcp"},"tls":{"insecureEdgeTerminationPolicy":"Redirect","termination":"edge"},"to":{"kind":"Service","name":"lab-build-an-operator-spawner","weight":100}}}
+      kubernetes.io/tls-acme: "false"
+    creationTimestamp: "2020-06-22T13:39:45Z"
+    labels:
+      app: lab-build-an-operator
+      class: spawner
+      spawner: learning-portal
+    name: lab-build-an-operator-spawner
+    namespace: lab-operator
+    resourceVersion: "242551"
+    selfLink: /apis/route.openshift.io/v1/namespaces/lab-operator/routes/lab-build-an-operator-spawner
+    uid: d54a3849-b48d-11ea-af8e-0a580a810048
+  spec:
+    host: lab-build-an-operator-lab-operator.apps.ocp-nlppmjlkoyrewqz200621.do280.rht-la.nextcle.com
+    port:
+      targetPort: 8080-tcp
+    subdomain: ""
+    tls:
+      insecureEdgeTerminationPolicy: Redirect
+      termination: edge
+    to:
+      kind: Service
+      name: lab-build-an-operator-spawner
+      weight: 100
+    wildcardPolicy: None
+  status:
+    ingress:
+    - conditions:
+      - lastTransitionTime: "2020-06-22T13:39:45Z"
+        status: "True"
+        type: Admitted
+      host: lab-build-an-operator-lab-operator.apps.ocp-nlppmjlkoyrewqz200621.do280.rht-la.nextcle.com
+      routerCanonicalHostname: apps.ocp-nlppmjlkoyrewqz200621.do280.rht-la.nextcle.com
+      routerName: default
+      wildcardPolicy: None
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

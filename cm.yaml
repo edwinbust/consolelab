@@ -1,0 +1,193 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  data:
+    gateway.sh: ""
+    terminal.sh: ""
+    workshop.sh: ""
+  kind: ConfigMap
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","data":{"gateway.sh":"","terminal.sh":"","workshop.sh":""},"kind":"ConfigMap","metadata":{"annotations":{},"labels":{"app":"lab-build-an-operator","class":"spawner","spawner":"learning-portal"},"name":"lab-build-an-operator-session-envvars","namespace":"lab-operator"}}
+    creationTimestamp: "2020-06-22T13:39:42Z"
+    labels:
+      app: lab-build-an-operator
+      class: spawner
+      spawner: learning-portal
+    name: lab-build-an-operator-session-envvars
+    namespace: lab-operator
+    resourceVersion: "242521"
+    selfLink: /api/v1/namespaces/lab-operator/configmaps/lab-build-an-operator-session-envvars
+    uid: d3bcfe35-b48d-11ea-9db7-0a64f989d73e
+- apiVersion: v1
+  data:
+    extra_resources.yaml: "kind: List\napiVersion: v1\nitems:\n- kind: ClusterRoleBinding\n
+      \ apiVersion: rbac.authorization.k8s.io/v1\n  metadata:\n    name: cluster-admin-${service_account}\n
+      \   labels:\n      app: ${application_name}-${spawner_namespace}\n      project:
+      ${project_namespace}\n  subjects:\n  - kind: ServiceAccount\n    name: ${service_account}\n
+      \   namespace: ${spawner_namespace}\n  roleRef:\n    apiGroup: rbac.authorization.k8s.io\n
+      \   kind: ClusterRole\n    name: cluster-admin\n- kind: SecurityContextConstraints\n
+      \ apiVersion: security.openshift.io/v1\n  metadata:\n    name: ${project_namespace}-containers\n
+      \   labels:\n      app: ${application_name}-${spawner_namespace}\n      project:
+      ${project_namespace}\n  priority: 8\n  runAsUser:\n    type: MustRunAsRange\n
+      \ seLinuxContext:\n    type: MustRunAs\n  fsGroup:\n    type: MustRunAs\n  requiredDropCapabilities:\n
+      \ - KILL\n  - MKNOD\n  allowHostDirVolumePlugin: false\n  allowHostIPC: false\n
+      \ allowHostNetwork: false\n  allowHostPID: false\n  allowHostPorts: false\n
+      \ allowPrivilegeEscalation: true\n  allowPrivilegedContainer: true\n  allowedCapabilities:
+      \n  defaultAddCapabilities: \n  users:\n  - system:serviceaccount:${spawner_namespace}:${service_account}\n
+      \ volumes:\n  - configMap\n  - downwardAPI\n  - emptyDir\n  - persistentVolumeClaim\n
+      \ - projected\n  - secret"
+  kind: ConfigMap
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","data":{"extra_resources.yaml":"kind: List\napiVersion: v1\nitems:\n- kind: ClusterRoleBinding\n  apiVersion: rbac.authorization.k8s.io/v1\n  metadata:\n    name: cluster-admin-${service_account}\n    labels:\n      app: ${application_name}-${spawner_namespace}\n      project: ${project_namespace}\n  subjects:\n  - kind: ServiceAccount\n    name: ${service_account}\n    namespace: ${spawner_namespace}\n  roleRef:\n    apiGroup: rbac.authorization.k8s.io\n    kind: ClusterRole\n    name: cluster-admin\n- kind: SecurityContextConstraints\n  apiVersion: security.openshift.io/v1\n  metadata:\n    name: ${project_namespace}-containers\n    labels:\n      app: ${application_name}-${spawner_namespace}\n      project: ${project_namespace}\n  priority: 8\n  runAsUser:\n    type: MustRunAsRange\n  seLinuxContext:\n    type: MustRunAs\n  fsGroup:\n    type: MustRunAs\n  requiredDropCapabilities:\n  - KILL\n  - MKNOD\n  allowHostDirVolumePlugin: false\n  allowHostIPC: false\n  allowHostNetwork: false\n  allowHostPID: false\n  allowHostPorts: false\n  allowPrivilegeEscalation: true\n  allowPrivilegedContainer: true\n  allowedCapabilities: \n  defaultAddCapabilities: \n  users:\n  - system:serviceaccount:${spawner_namespace}:${service_account}\n  volumes:\n  - configMap\n  - downwardAPI\n  - emptyDir\n  - persistentVolumeClaim\n  - projected\n  - secret"},"kind":"ConfigMap","metadata":{"annotations":{},"labels":{"app":"lab-build-an-operator","class":"spawner","spawner":"learning-portal"},"name":"lab-build-an-operator-session-resources","namespace":"lab-operator"}}
+    creationTimestamp: "2020-06-22T13:39:41Z"
+    labels:
+      app: lab-build-an-operator
+      class: spawner
+      spawner: learning-portal
+    name: lab-build-an-operator-session-resources
+    namespace: lab-operator
+    resourceVersion: "242807"
+    selfLink: /api/v1/namespaces/lab-operator/configmaps/lab-build-an-operator-session-resources
+    uid: d33aa2c9-b48d-11ea-9db7-0a64f989d73e
+- apiVersion: v1
+  data:
+    jupyterhub_config.py: |-
+      c.Spawner.start_timeout = 180
+
+      c.KubeSpawner.privileged = True
+
+      resource_budget_mapping['custom'] = {
+          "resource-limits" : {
+              "kind": "LimitRange",
+              "apiVersion": "v1",
+              "metadata": {
+                  "name": "resource-limits",
+                  "annotations": {
+                      "resource-budget": "custom"
+                  }
+              },
+              "spec": {
+                  "limits": [
+                      {
+                          "type": "Pod",
+                          "min": {
+                              "cpu": "50m",
+                              "memory": "32Mi"
+                          },
+                          "max": {
+                              "cpu": "8",
+                              "memory": "8Gi"
+                          }
+                      },
+                      {
+                          "type": "Container",
+                          "min": {
+                              "cpu": "50m",
+                              "memory": "32Mi"
+                          },
+                          "max": {
+                              "cpu": "8",
+                              "memory": "8Gi"
+                          },
+                          "default": {
+                              "cpu": "500m",
+                              "memory": "1Gi"
+                          },
+                          "defaultRequest": {
+                              "cpu": "50m",
+                              "memory": "128Mi"
+                          }
+                      },
+                      {
+                          "type": "PersistentVolumeClaim",
+                          "min": {
+                              "storage": "1Gi"
+                          },
+                          "max": {
+                              "storage": "20Gi"
+                          }
+                      }
+                  ]
+              }
+          },
+          "compute-resources" : {
+              "kind": "ResourceQuota",
+              "apiVersion": "v1",
+              "metadata": {
+                  "name": "compute-resources",
+                  "annotations": {
+                      "resource-budget": "custom"
+                  }
+              },
+              "spec": {
+                  "hard": {
+                      "limits.cpu": "8",
+                      "limits.memory": "8Gi"
+                  },
+                  "scopes": [
+                      "NotTerminating"
+                  ]
+              }
+          },
+          "compute-resources-timebound" : {
+              "kind": "ResourceQuota",
+              "apiVersion": "v1",
+              "metadata": {
+                  "name": "compute-resources-timebound",
+                  "annotations": {
+                      "resource-budget": "custom"
+                  }
+              },
+              "spec": {
+                  "hard": {
+                      "limits.cpu": "8",
+                      "limits.memory": "8Gi"
+                  },
+                  "scopes": [
+                      "Terminating"
+                  ]
+              }
+          },
+          "object-counts" : {
+              "kind": "ResourceQuota",
+              "apiVersion": "v1",
+              "metadata": {
+                  "name": "object-counts",
+                  "annotations": {
+                      "resource-budget": "custom"
+                  }
+              },
+              "spec": {
+                  "hard": {
+                      "persistentvolumeclaims": "18",
+                      "replicationcontrollers": "35",
+                      "secrets": "45",
+                      "services": "30"
+                  }
+              }
+          }
+      }
+    jupyterhub_config.sh: ""
+  kind: ConfigMap
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","data":{"jupyterhub_config.py":"c.Spawner.start_timeout = 180\n\nc.KubeSpawner.privileged = True\n\nresource_budget_mapping['custom'] = {\n    \"resource-limits\" : {\n        \"kind\": \"LimitRange\",\n        \"apiVersion\": \"v1\",\n        \"metadata\": {\n            \"name\": \"resource-limits\",\n            \"annotations\": {\n                \"resource-budget\": \"custom\"\n            }\n        },\n        \"spec\": {\n            \"limits\": [\n                {\n                    \"type\": \"Pod\",\n                    \"min\": {\n                        \"cpu\": \"50m\",\n                        \"memory\": \"32Mi\"\n                    },\n                    \"max\": {\n                        \"cpu\": \"8\",\n                        \"memory\": \"8Gi\"\n                    }\n                },\n                {\n                    \"type\": \"Container\",\n                    \"min\": {\n                        \"cpu\": \"50m\",\n                        \"memory\": \"32Mi\"\n                    },\n                    \"max\": {\n                        \"cpu\": \"8\",\n                        \"memory\": \"8Gi\"\n                    },\n                    \"default\": {\n                        \"cpu\": \"500m\",\n                        \"memory\": \"1Gi\"\n                    },\n                    \"defaultRequest\": {\n                        \"cpu\": \"50m\",\n                        \"memory\": \"128Mi\"\n                    }\n                },\n                {\n                    \"type\": \"PersistentVolumeClaim\",\n                    \"min\": {\n                        \"storage\": \"1Gi\"\n                    },\n                    \"max\": {\n                        \"storage\": \"20Gi\"\n                    }\n                }\n            ]\n        }\n    },\n    \"compute-resources\" : {\n        \"kind\": \"ResourceQuota\",\n        \"apiVersion\": \"v1\",\n        \"metadata\": {\n            \"name\": \"compute-resources\",\n            \"annotations\": {\n                \"resource-budget\": \"custom\"\n            }\n        },\n        \"spec\": {\n            \"hard\": {\n                \"limits.cpu\": \"8\",\n                \"limits.memory\": \"8Gi\"\n            },\n            \"scopes\": [\n                \"NotTerminating\"\n            ]\n        }\n    },\n    \"compute-resources-timebound\" : {\n        \"kind\": \"ResourceQuota\",\n        \"apiVersion\": \"v1\",\n        \"metadata\": {\n            \"name\": \"compute-resources-timebound\",\n            \"annotations\": {\n                \"resource-budget\": \"custom\"\n            }\n        },\n        \"spec\": {\n            \"hard\": {\n                \"limits.cpu\": \"8\",\n                \"limits.memory\": \"8Gi\"\n            },\n            \"scopes\": [\n                \"Terminating\"\n            ]\n        }\n    },\n    \"object-counts\" : {\n        \"kind\": \"ResourceQuota\",\n        \"apiVersion\": \"v1\",\n        \"metadata\": {\n            \"name\": \"object-counts\",\n            \"annotations\": {\n                \"resource-budget\": \"custom\"\n            }\n        },\n        \"spec\": {\n            \"hard\": {\n                \"persistentvolumeclaims\": \"18\",\n                \"replicationcontrollers\": \"35\",\n                \"secrets\": \"45\",\n                \"services\": \"30\"\n            }\n        }\n    }\n}","jupyterhub_config.sh":""},"kind":"ConfigMap","metadata":{"annotations":{},"labels":{"app":"lab-build-an-operator","class":"spawner","spawner":"learning-portal"},"name":"lab-build-an-operator-spawner-configs","namespace":"lab-operator"}}
+    creationTimestamp: "2020-06-22T13:39:40Z"
+    labels:
+      app: lab-build-an-operator
+      class: spawner
+      spawner: learning-portal
+    name: lab-build-an-operator-spawner-configs
+    namespace: lab-operator
+    resourceVersion: "242511"
+    selfLink: /api/v1/namespaces/lab-operator/configmaps/lab-build-an-operator-spawner-configs
+    uid: d2b836e2-b48d-11ea-9db7-0a64f989d73e
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
